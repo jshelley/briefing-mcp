@@ -1,0 +1,17 @@
+{
+  "name": "briefing-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Briefing Service: hourly LLM-ranked news briefings (AI, markets, sports, world) as JSON, rendered e-ink pages and a free provenance dump",
+  "type": "module",
+  "bin": { "briefing-mcp": "index.js" },
+  "files": ["index.js", "README.md", "LICENSE"],
+  "engines": { "node": ">=18" },
+  "keywords": ["mcp", "model-context-protocol", "news", "briefing", "e-ink", "x402"],
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/jshelley/briefing-mcp" },
+  "homepage": "https://briefing-service.wholemind.workers.dev",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.24.0"
+  }
+}
