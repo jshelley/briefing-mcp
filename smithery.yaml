@@ -1,0 +1,10 @@
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      briefingKey:
+        type: string
+        description: Optional Reader key ($9/month) sent as a bearer token; leave empty for the free tier.
+  commandFunction: |-
+    (config) => ({ command: "node", args: ["index.js"], env: { BRIEFING_KEY: config.briefingKey || "" } })
