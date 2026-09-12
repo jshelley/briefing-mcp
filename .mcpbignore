@@ -1,0 +1,7 @@
+client-test.mjs
+.git
+.gitignore
+Dockerfile
+smithery.yaml
+glama.json
+*.mcpb

@@ -1,0 +1,42 @@
+{
+  "manifest_version": "0.3",
+  "name": "briefing-mcp",
+  "display_name": "Briefing Service",
+  "version": "0.1.0",
+  "description": "Hourly LLM-ranked news briefings (AI, frontier labs, markets, sports, world) as JSON, rendered e-ink pages and a free provenance dump.",
+  "long_description": "Six tools over the Briefing Service REST API: list_briefings, get_briefing, get_summary, get_candidates, get_page, render_briefing. 25 free calls per IP per day, then a $9/month Reader key or x402.",
+  "author": { "name": "Jordan Shelley", "url": "https://github.com/jshelley" },
+  "homepage": "https://briefing-service.wholemind.workers.dev",
+  "documentation": "https://briefing-service.wholemind.workers.dev/llms.txt",
+  "repository": { "type": "git", "url": "https://github.com/jshelley/briefing-mcp" },
+  "license": "MIT",
+  "keywords": ["news", "briefing", "e-ink", "x402"],
+  "server": {
+    "type": "node",
+    "entry_point": "index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/index.js"],
+      "env": { "BRIEFING_KEY": "${user_config.briefing_key}" }
+    }
+  },
+  "user_config": {
+    "briefing_key": {
+      "type": "string",
+      "title": "Reader key",
+      "description": "Optional. A $9/month Reader key from briefing-service.wholemind.workers.dev/billing/checkout; leave empty for the free tier.",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    }
+  },
+  "tools": [
+    { "name": "list_briefings", "description": "List the hourly briefings available" },
+    { "name": "get_briefing", "description": "One briefing as structured JSON" },
+    { "name": "get_summary", "description": "Headlines and one-liners (free)" },
+    { "name": "get_candidates", "description": "Every candidate this hour with dedupe metadata (free)" },
+    { "name": "get_page", "description": "Rendered 480x800 1-bit PNG page" },
+    { "name": "render_briefing", "description": "Rank and render your own feeds" }
+  ],
+  "compatibility": { "runtimes": { "node": ">=18" } }
+}

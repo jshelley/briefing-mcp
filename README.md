@@ -28,6 +28,8 @@ Claude Code one-liner:
 claude mcp add briefings -- npx -y github:jshelley/briefing-mcp
 ```
 
+Claude Desktop, one click: download [briefing-mcp-0.1.0.mcpb](https://github.com/jshelley/briefing-mcp/releases/download/v0.1.0/briefing-mcp-0.1.0.mcpb) and open it (MCP bundle; it asks for the optional Reader key).
+
 ## Tools
 
 | tool | what it returns | cost |
