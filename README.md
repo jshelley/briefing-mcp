@@ -47,6 +47,17 @@ claude mcp add briefings -- npx -y github:jshelley/briefing-mcp
 
 Docs for agents: https://briefing-service.wholemind.workers.dev/llms.txt
 
+## How it works
+
+`index.js` is the whole server: it registers six tools with `@modelcontextprotocol/sdk` and answers each by calling the public Briefing Service REST API over HTTPS (`GET /v1/briefings/...`, `POST /v1/render`). It stores nothing, runs no shell commands, and reads only two environment variables (`BRIEFING_KEY`, `BRIEFING_BASE_URL`). The `Dockerfile` builds the same thing; `docker run -i` speaks MCP over stdio.
+
+Run the smoke test locally:
+
+```bash
+npm install
+node client-test.mjs   # lists tools and calls list_briefings, get_summary, get_candidates, get_page, get_briefing
+```
+
 ## Environment
 
 - `BRIEFING_KEY`: optional Reader key (sent as `Authorization: Bearer`).

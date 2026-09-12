@@ -1,0 +1,18 @@
+import { Client } from "@modelcontextprotocol/sdk/client/index.js";
+import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
+const transport = new StdioClientTransport({ command: "node", args: ["index.js"] });
+const client = new Client({ name: "test", version: "0.0.0" });
+await client.connect(transport);
+const tools = await client.listTools();
+console.log("tools:", tools.tools.map(t => t.name).join(", "));
+const lb = await client.callTool({ name: "list_briefings", arguments: {} });
+console.log("list_briefings:", lb.content[0].text.slice(0, 120));
+const sm = await client.callTool({ name: "get_summary", arguments: { key: "ai" } });
+console.log("get_summary lead:", JSON.parse(sm.content[0].text).lead?.headline);
+const cd = await client.callTool({ name: "get_candidates", arguments: { key: "world" } });
+const c = JSON.parse(cd.content[0].text); console.log("get_candidates: count", c.count, "duplicates", c.duplicates);
+const pg = await client.callTool({ name: "get_page", arguments: { key: "ai", page: 0 } });
+console.log("get_page:", pg.content[0].type, pg.content[0].mimeType, "base64 len", pg.content[0].data?.length, "isError", pg.isError);
+const gb = await client.callTool({ name: "get_briefing", arguments: { key: "finance" } });
+console.log("get_briefing:", gb.isError ? gb.content[0].text.slice(0,100) : "ok, ranked_at " + JSON.parse(gb.content[0].text).ranked_at);
+await client.close();
