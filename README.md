@@ -60,6 +60,8 @@ npm install
 node client-test.mjs   # lists tools and calls list_briefings, get_summary, get_candidates, get_page, get_briefing
 ```
 
+Write-up of the pipeline (collect, entity-overlap dedupe, LLM editor, 1-bit render) and what the first week taught: https://dev.to/jshelley/i-built-an-hourly-newspaper-for-e-ink-and-turned-the-pipeline-into-an-mcp-server-1ebg. Each briefing also has an Atom feed at `/v1/briefings/{key}/feed.xml`; the Morning Paper PDF carries an outline per story, front-page go-to links and a clickable source URL on every story page.
+
 ## Environment
 
 - `BRIEFING_KEY`: optional Reader key (sent as `Authorization: Bearer`).
