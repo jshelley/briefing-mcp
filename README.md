@@ -1,6 +1,6 @@
 # briefing-mcp
 
-[![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/briefing-service-wholemind-workers-dev) [![briefing-mcp on Glama](https://glama.ai/mcp/servers/jshelley/briefing-mcp/badges/score.svg)](https://glama.ai/mcp/servers/jshelley/briefing-mcp)
+[![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/briefing-service-wholemind-workers-dev) [![briefing-mcp on Glama](https://glama.ai/mcp/servers/jshelley/briefing-mcp/badges/score.svg)](https://glama.ai/mcp/servers/jshelley/briefing-mcp) [![Indexed on TensorBlock MCP Index](https://mcp-index.tensorblock.co/v1/servers/github-jshelley-briefing-mcp-3acc4c9f/badge.svg)](https://tensorblock.co/mcp/servers/github-jshelley-briefing-mcp-3acc4c9f)
 
 MCP server for [Briefing Service](https://briefing-service.wholemind.workers.dev): every hour an LLM editor ranks ~100 feeds per topic (AI, frontier labs, markets, US sports, European football, US news, world) and publishes the result as structured JSON, a rendered 480x800 e-ink page, a multi-page Morning Paper PDF, and a free provenance dump of every candidate it saw.
 
