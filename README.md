@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/briefing-mcp.svg)](https://www.npmjs.com/package/briefing-mcp) [![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/briefing-service-wholemind-workers-dev) [![briefing-mcp on Glama](https://glama.ai/mcp/servers/jshelley/briefing-mcp/badges/score.svg)](https://glama.ai/mcp/servers/jshelley/briefing-mcp) [![Indexed on TensorBlock MCP Index](https://mcp-index.tensorblock.co/v1/servers/github-jshelley-briefing-mcp-3acc4c9f/badge.svg)](https://tensorblock.co/mcp/servers/github-jshelley-briefing-mcp-3acc4c9f)
 
-MCP server for [Briefing Service](https://briefing-service.wholemind.workers.dev): every hour an LLM editor ranks ~100 feeds per topic (AI, frontier labs, markets, US sports, European football, US news, world) and publishes the result as structured JSON, a rendered 480x800 e-ink page, a multi-page Morning Paper PDF, and a free provenance dump of every candidate it saw.
+MCP server for [Briefing Service](https://briefing-service.wholemind.workers.dev): every hour an LLM editor ranks ~100 feeds per topic (AI, frontier labs, markets, US sports, European football, US news, world, crypto & onchain) plus two daily editions (Grants & Funding: newly posted federal funding notices with Deadline / Amount / Eligible on every item; Noticias Lentas: the day's news in simple Spanish at CEFR B1 with a glossary) and publishes the result as structured JSON, a rendered 480x800 e-ink page, a multi-page Morning Paper PDF, and a free provenance dump of every candidate it saw.
 
 This package runs locally over stdio and calls the public REST API. The same tools are served remotely (streamable HTTP, no install) at `https://briefing-service.wholemind.workers.dev/mcp`.
 
@@ -34,7 +34,7 @@ Claude Desktop, one click: download [briefing-mcp-0.1.0.mcpb](https://github.com
 
 | tool | what it returns | cost |
 |---|---|---|
-| `list_briefings` | keys, names and prices | free |
+| `list_briefings` | the 10 keys (`ai`, `labs`, `finance`, `sports`, `soccer`, `us`, `world`, `crypto`, `grants`, `slow-es-b1`), names and prices | free |
 | `get_briefing(key)` | lead, ranked stories, research, why-it-matters, key points | 25 free/IP/day, then key or x402 |
 | `get_summary(key)` | headlines and one-liners | free |
 | `get_candidates(key)` | every candidate this hour: canonical link, outlets, `selected`, collapsed duplicates with `duplicate_of` | free |
